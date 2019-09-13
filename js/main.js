@@ -1,5 +1,5 @@
-for(var i = 1; i <= 5000; i++) {
-    var myDiv = document.createElement('div');
+for(var i = 1; i <= 5000; i++) { // Loops 5000 times (creates 5000 squares), each loop iteration creates a small square (div) and appends it to the parent
+    let myDiv = document.createElement('div');
     document.body.appendChild(myDiv);
   }
 
@@ -7,15 +7,18 @@ for(var i = 1; i <= 5000; i++) {
     return Math.floor(Math.random() * number);
   }
 
-  function bgChange() {
-    var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  function bgChange() { // Creates and returns a random rgb color value
+    let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
     return rndCol;
   }
 
-  var divs = document.querySelectorAll('div');
+  let divs = document.querySelectorAll('div'); // Creates a variable "divs" that selects all div elements (i.e. selects all 5000 squares)
 
-  for(var i = 0; i < divs.length; i++) {
+  for(let i = 0; i < divs.length; i++) { // For each target of the event mouseover, changes the style to the random rgb value generated earlier
     divs[i].onmouseover = function(e) {
-      e.target.style.backgroundColor = bgChange(); // Add click to reset
+      e.target.style.backgroundColor = bgChange();
+    }
+    divs[i].onclick = function(e) { // If any square on the page is clicked, refreshes that page, allowing the user to create a new drawing
+      location.reload();
     }
   }
