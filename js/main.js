@@ -18,7 +18,7 @@ for(var i = 1; i <= 5000; i++) { // Loops 5000 times (creates 5000 squares), eac
     divs[i].onmouseover = function(e) {
       e.target.style.backgroundColor = bgChange();
     }
-    divs[i].touchmove = function(e) { // Attempting to make it work on touchscreens
+    divs[i].touchmove = function(e) { // Attempting to make it work on touchscreens. Does not appear to work (9/14/19)
       e.target.style.backgroundColor = bgChange();
     }
     divs[i].onclick = function() { // If any square on the page is clicked, refreshes that page, allowing the user to create a new drawing
